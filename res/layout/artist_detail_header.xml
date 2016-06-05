@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color" >
+    android:background="@color/artist_detail_header_background_color" >
 
     <ImageView
         android:id="@+id/hero"
@@ -16,9 +16,8 @@
         android:layout_marginLeft="@dimen/list_item_general_margin"
         android:layout_below="@id/hero"
         android:gravity="center_vertical"
-        android:fontFamily="sans-serif-light"
         android:textAllCaps="true"
-        android:textColor="@color/list_item_header_text_color"
+        android:textColor="@color/artist_detail_header_albums_label_text_color"
         android:textSize="@dimen/text_size_medium"
         android:text="@string/header_albums" />
 
@@ -26,7 +25,7 @@
         android:id="@+id/albums"
         android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="148dp"
+        android:layout_height="230dp"
         android:layout_below="@id/albums_label" />
 
     <TextView
@@ -36,9 +35,8 @@
         android:layout_marginLeft="@dimen/list_item_general_margin"
         android:layout_below="@id/albums"
         android:gravity="bottom"
-        android:fontFamily="sans-serif-light"
         android:textAllCaps="true"
-        android:textColor="@color/list_item_header_text_color"
+        android:textColor="@color/artist_detail_header_songs_label_text_color"
         android:textSize="@dimen/text_size_medium"
         android:text="@string/header_all_songs" />
 

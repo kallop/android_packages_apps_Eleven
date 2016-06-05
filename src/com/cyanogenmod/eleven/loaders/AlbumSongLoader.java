@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Used to query {@link MediaStore.Audio.Media.EXTERNAL_CONTENT_URI} and return
  * the Song for a particular album.
- * 
+ *
  * @author Andrew Neal (andrewdneal@gmail.com)
  */
 public class AlbumSongLoader extends WrappedAsyncTaskLoader<List<Song>> {
@@ -51,7 +51,7 @@ public class AlbumSongLoader extends WrappedAsyncTaskLoader<List<Song>> {
 
     /**
      * Constructor of <code>AlbumSongHandler</code>
-     * 
+     *
      * @param context The {@link Context} to use.
      * @param albumId The Id of the album the songs belong to.
      */
@@ -113,10 +113,9 @@ public class AlbumSongLoader extends WrappedAsyncTaskLoader<List<Song>> {
      */
     public static final Cursor makeAlbumSongCursor(final Context context, final Long albumId) {
         // Match the songs up with the artist
-        final StringBuilder selection = new StringBuilder();
-        selection.append(AudioColumns.IS_MUSIC + "=1");
-        selection.append(" AND " + AudioColumns.TITLE + " != ''");
-        selection.append(" AND " + AudioColumns.ALBUM_ID + "=").append(albumId);
+        String selection = (AudioColumns.IS_MUSIC + "=1") +
+                " AND " + AudioColumns.TITLE + " != ''" +
+                " AND " + AudioColumns.ALBUM_ID + "=" + albumId;
         return context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                 new String[] {
                         /* 0 */
@@ -131,9 +130,8 @@ public class AlbumSongLoader extends WrappedAsyncTaskLoader<List<Song>> {
                         AudioColumns.DURATION,
                         /* 5 */
                         AudioColumns.YEAR,
-                }, selection.toString(), null,
+                }, selection, null,
                 PreferenceUtils.getInstance(context).getAlbumSongSortOrder());
     }
 
 }
-
